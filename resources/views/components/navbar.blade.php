@@ -1,17 +1,16 @@
 <div class="bg-base-100 shadow-sm">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 navbar">
-    <div class="flex-1">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 navbar justify-between">
+    <div>
       <a href="/dashboard" class="text-xl font-bold flex items-center gap-2">
         <img src="{{ asset('loan.svg') }}" alt="PinoyLoan" class="w-10 h-10">
         PinoyLoan
       </a>
     </div>
-    <div class="flex-none">
+    <div>
       <!-- Mobile menu button -->
       <button class="btn btn-ghost md:hidden"
         onclick="document.getElementById('mobile-menu').classList.toggle('translate-x-full')">
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
-          stroke="currentColor">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
         </svg>
       </button>
@@ -19,8 +18,19 @@
       <ul class="menu menu-horizontal px-1 space-x-4 hidden md:flex">
         <li><x-nav-link href="/dashboard" :active="request()->is('dashboard*')">Dashboard</x-nav-link></li>
         <li><x-nav-link href="/loans" :active="request()->is('loans*')">Loans</x-nav-link></li>
+        <li><x-nav-link href="/loans" :active="request()->is('loans*')">Loans</x-nav-link></li>
+        <li><x-nav-link href="/loans" :active="request()->is('loans*')">Loans</x-nav-link></li>
+
       </ul>
     </div>
+    @auth
+      <div class="hidden md:block">
+        <form action="/logout" method="POST">
+          @csrf
+          <x-form-button>Logout</x-form-button>
+        </form>
+      </div>
+    @endauth
   </div>
   <!-- Mobile menu -->
   <div id="mobile-menu"
@@ -37,12 +47,14 @@
         <li class="w-full"><x-nav-link href="/dashboard" :active="request()->is('dashboard*')">Dashboard</x-nav-link></li>
         <li class="w-full"><x-nav-link href="/loans" :active="request()->is('loans*')">Loans</x-nav-link></li>
       </ul>
-      <div class="mt-auto flex flex-col items-end justify-end h-full">
-        <form action="/logout" method="POST">
-          @csrf
-          <button type="submit" class="btn btn-ghost">Logout</button>
-        </form>
-      </div>
+      @auth
+        <div class="mt-auto flex flex-col items-end justify-end h-full">
+          <form action="/logout" method="POST">
+            @csrf
+            <x-form-button>Logout</x-form-button>
+          </form>
+        </div>
+      @endauth
     </div>
   </div>
 </div>
