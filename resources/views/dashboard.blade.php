@@ -15,5 +15,9 @@
       <x-card-counts count="100" title="Total Collected" icon="sack-dollar" />
       <x-card-counts count="100" title="Remaining Balance" icon="receipt" />
     </div>
+    <div class="mt-6 space-y-4">
+      <h2 class="text-2xl font-bold">Borrowers</h2>
+      <x-borrowers-table :borrowers="$borrowers" />
+    </div>
   </div>
 </x-layouts.auth>

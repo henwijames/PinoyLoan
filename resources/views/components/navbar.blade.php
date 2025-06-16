@@ -17,10 +17,8 @@
       <!-- Desktop menu -->
       <ul class="menu menu-horizontal px-1 space-x-4 hidden md:flex">
         <li><x-nav-link href="/dashboard" :active="request()->is('dashboard*')">Dashboard</x-nav-link></li>
-        <li><x-nav-link href="/loans" :active="request()->is('loans*')">Loans</x-nav-link></li>
-        <li><x-nav-link href="/loans" :active="request()->is('loans*')">Loans</x-nav-link></li>
-        <li><x-nav-link href="/loans" :active="request()->is('loans*')">Loans</x-nav-link></li>
-
+        <li><x-nav-link href="/borrowers" :active="request()->is('borrowers*')">Borrowers</x-nav-link></li>
+        <li><x-nav-link href="/payments" :active="request()->is('payments*')">Payments</x-nav-link></li>
       </ul>
     </div>
     @auth
@@ -34,7 +32,7 @@
   </div>
   <!-- Mobile menu -->
   <div id="mobile-menu"
-    class="fixed top-0 right-0 bg-base-100 h-full w-60 md:hidden transform translate-x-full transition-transform duration-300 ease-in-out p-4 shadow-lg">
+    class="fixed top-0 right-0 h-full w-60 md:hidden transform translate-x-full transition-transform duration-300 ease-in-out p-4 shadow-lg bg-base-100">
     <div class="flex flex-col h-full">
       <button class="btn btn-ghost self-end"
         onclick="document.getElementById('mobile-menu').classList.toggle('translate-x-full')">
@@ -45,7 +43,8 @@
       </button>
       <ul class="menu menu-vertical px-4 py-2 space-y-2 w-full">
         <li class="w-full"><x-nav-link href="/dashboard" :active="request()->is('dashboard*')">Dashboard</x-nav-link></li>
-        <li class="w-full"><x-nav-link href="/loans" :active="request()->is('loans*')">Loans</x-nav-link></li>
+        <li class="w-full"><x-nav-link href="/borrowers" :active="request()->is('borrowers*')">Borrowers</x-nav-link></li>
+        <li class="w-full"><x-nav-link href="/payments" :active="request()->is('payments*')">Payments</x-nav-link></li>
       </ul>
       @auth
         <div class="mt-auto flex flex-col items-end justify-end h-full">
